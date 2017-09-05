@@ -207,14 +207,14 @@
             // 
             // txt_resultfilter
             // 
-            this.txt_resultfilter.Location = new System.Drawing.Point(362, 363);
+            this.txt_resultfilter.Location = new System.Drawing.Point(806, 363);
             this.txt_resultfilter.Name = "txt_resultfilter";
             this.txt_resultfilter.Size = new System.Drawing.Size(93, 21);
             this.txt_resultfilter.TabIndex = 18;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(475, 363);
+            this.button6.Location = new System.Drawing.Point(914, 361);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 19;
