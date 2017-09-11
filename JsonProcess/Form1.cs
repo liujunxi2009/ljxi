@@ -137,11 +137,15 @@ namespace JsonProcess
     private void btn_remove_Click(object sender, EventArgs e)
     {
       string str = this.richTextBox1.Text;
-      if (this.checkBox1.Checked ==true)
+      if (this.checkBox1.Checked == true)
       {
-        str = str.Replace("\n", "");
+        str = str.Replace("\n", "").Replace("\r", "");
       }
-      if (this.textBox1.Text!="")
+      if (this.checkBox2.Checked == true)
+      {
+        str = str.Replace("\t", "").Replace("\v", "").Replace("\f", "");
+      }
+      if (this.textBox1.Text != "")
       {
         string[] str2 = this.textBox1.Text.Split('|');
         for (int i = 0; i < str2.Length; i++)
@@ -149,7 +153,7 @@ namespace JsonProcess
           str = str.Replace(str2[i], "");
         }
       }
-    
+
       this.richTextBox2.Text = str;
 
     }
