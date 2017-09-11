@@ -56,12 +56,19 @@
       this.btn_rexpopup = new System.Windows.Forms.Button();
       this.btn_shortcuttool = new System.Windows.Forms.Button();
       this.checkBox1 = new System.Windows.Forms.CheckBox();
+<<<<<<< HEAD
       this.checkBox2 = new System.Windows.Forms.CheckBox();
+=======
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.SuspendLayout();
       // 
       // button1
       // 
+<<<<<<< HEAD
       this.button1.Location = new System.Drawing.Point(336, 360);
+=======
+      this.button1.Location = new System.Drawing.Point(1014, 297);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(75, 23);
       this.button1.TabIndex = 0;
@@ -89,7 +96,11 @@
       // 
       // btn_remove
       // 
+<<<<<<< HEAD
       this.btn_remove.Location = new System.Drawing.Point(304, 299);
+=======
+      this.btn_remove.Location = new System.Drawing.Point(217, 298);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.btn_remove.Name = "btn_remove";
       this.btn_remove.Size = new System.Drawing.Size(75, 23);
       this.btn_remove.TabIndex = 3;
@@ -106,7 +117,11 @@
       // 
       // button2
       // 
+<<<<<<< HEAD
       this.button2.Location = new System.Drawing.Point(607, 297);
+=======
+      this.button2.Location = new System.Drawing.Point(516, 297);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.button2.Name = "button2";
       this.button2.Size = new System.Drawing.Size(75, 23);
       this.button2.TabIndex = 5;
@@ -116,7 +131,11 @@
       // 
       // textBox2
       // 
+<<<<<<< HEAD
       this.textBox2.Location = new System.Drawing.Point(397, 299);
+=======
+      this.textBox2.Location = new System.Drawing.Point(306, 299);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.textBox2.Name = "textBox2";
       this.textBox2.Size = new System.Drawing.Size(73, 21);
       this.textBox2.TabIndex = 6;
@@ -124,7 +143,11 @@
       // label1
       // 
       this.label1.AutoSize = true;
+<<<<<<< HEAD
       this.label1.Location = new System.Drawing.Point(476, 302);
+=======
+      this.label1.Location = new System.Drawing.Point(385, 302);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(47, 12);
       this.label1.TabIndex = 7;
@@ -132,14 +155,22 @@
       // 
       // textBox3
       // 
+<<<<<<< HEAD
       this.textBox3.Location = new System.Drawing.Point(529, 299);
+=======
+      this.textBox3.Location = new System.Drawing.Point(438, 299);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.textBox3.Name = "textBox3";
       this.textBox3.Size = new System.Drawing.Size(73, 21);
       this.textBox3.TabIndex = 8;
       // 
       // button3
       // 
+<<<<<<< HEAD
       this.button3.Location = new System.Drawing.Point(1021, 298);
+=======
+      this.button3.Location = new System.Drawing.Point(933, 297);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.button3.Name = "button3";
       this.button3.Size = new System.Drawing.Size(75, 23);
       this.button3.TabIndex = 9;
@@ -149,14 +180,22 @@
       // 
       // textBox4
       // 
+<<<<<<< HEAD
       this.textBox4.Location = new System.Drawing.Point(695, 299);
+=======
+      this.textBox4.Location = new System.Drawing.Point(607, 297);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.textBox4.Name = "textBox4";
       this.textBox4.Size = new System.Drawing.Size(240, 21);
       this.textBox4.TabIndex = 10;
       // 
       // textBox5
       // 
+<<<<<<< HEAD
       this.textBox5.Location = new System.Drawing.Point(941, 299);
+=======
+      this.textBox5.Location = new System.Drawing.Point(853, 297);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.textBox5.Name = "textBox5";
       this.textBox5.Size = new System.Drawing.Size(74, 21);
       this.textBox5.TabIndex = 11;
@@ -165,13 +204,21 @@
       // 
       this.rex_text.Location = new System.Drawing.Point(12, 332);
       this.rex_text.Name = "rex_text";
+<<<<<<< HEAD
       this.rex_text.Size = new System.Drawing.Size(420, 21);
+=======
+      this.rex_text.Size = new System.Drawing.Size(240, 21);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.rex_text.TabIndex = 12;
       this.rex_text.Text = "(?<url>http(s)?://([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?)";
       // 
       // button4
       // 
+<<<<<<< HEAD
       this.button4.Location = new System.Drawing.Point(438, 330);
+=======
+      this.button4.Location = new System.Drawing.Point(258, 330);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.button4.Name = "button4";
       this.button4.Size = new System.Drawing.Size(98, 23);
       this.button4.TabIndex = 13;
@@ -181,7 +228,11 @@
       // 
       // button5
       // 
+<<<<<<< HEAD
       this.button5.Location = new System.Drawing.Point(780, 334);
+=======
+      this.button5.Location = new System.Drawing.Point(597, 334);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.button5.Name = "button5";
       this.button5.Size = new System.Drawing.Size(64, 23);
       this.button5.TabIndex = 15;
@@ -191,7 +242,11 @@
       // 
       // txt_format
       // 
+<<<<<<< HEAD
       this.txt_format.Location = new System.Drawing.Point(631, 334);
+=======
+      this.txt_format.Location = new System.Drawing.Point(448, 334);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.txt_format.Name = "txt_format";
       this.txt_format.Size = new System.Drawing.Size(143, 21);
       this.txt_format.TabIndex = 16;
@@ -208,14 +263,24 @@
       // 
       // txt_resultfilter
       // 
+<<<<<<< HEAD
       this.txt_resultfilter.Location = new System.Drawing.Point(695, 363);
       this.txt_resultfilter.Name = "txt_resultfilter";
       this.txt_resultfilter.Size = new System.Drawing.Size(213, 21);
+=======
+      this.txt_resultfilter.Location = new System.Drawing.Point(755, 332);
+      this.txt_resultfilter.Name = "txt_resultfilter";
+      this.txt_resultfilter.Size = new System.Drawing.Size(93, 21);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.txt_resultfilter.TabIndex = 18;
       // 
       // button6
       // 
+<<<<<<< HEAD
       this.button6.Location = new System.Drawing.Point(914, 361);
+=======
+      this.button6.Location = new System.Drawing.Point(867, 330);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.button6.Name = "button6";
       this.button6.Size = new System.Drawing.Size(75, 23);
       this.button6.TabIndex = 19;
@@ -225,7 +290,11 @@
       // 
       // button7
       // 
+<<<<<<< HEAD
       this.button7.Location = new System.Drawing.Point(850, 334);
+=======
+      this.button7.Location = new System.Drawing.Point(667, 334);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.button7.Name = "button7";
       this.button7.Size = new System.Drawing.Size(75, 23);
       this.button7.TabIndex = 20;
@@ -273,7 +342,11 @@
       // 
       // btn_rowrex
       // 
+<<<<<<< HEAD
       this.btn_rowrex.Location = new System.Drawing.Point(545, 330);
+=======
+      this.btn_rowrex.Location = new System.Drawing.Point(362, 330);
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.btn_rowrex.Name = "btn_rowrex";
       this.btn_rowrex.Size = new System.Drawing.Size(75, 23);
       this.btn_rowrex.TabIndex = 25;
@@ -311,6 +384,7 @@
       this.checkBox1.Text = "换行";
       this.checkBox1.UseVisualStyleBackColor = true;
       // 
+<<<<<<< HEAD
       // checkBox2
       // 
       this.checkBox2.AutoSize = true;
@@ -321,12 +395,17 @@
       this.checkBox2.Text = "空白";
       this.checkBox2.UseVisualStyleBackColor = true;
       // 
+=======
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1107, 668);
+<<<<<<< HEAD
       this.Controls.Add(this.checkBox2);
+=======
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
       this.Controls.Add(this.checkBox1);
       this.Controls.Add(this.btn_shortcuttool);
       this.Controls.Add(this.btn_rexpopup);
@@ -392,7 +471,11 @@
     private System.Windows.Forms.Button btn_rexpopup;
     private System.Windows.Forms.Button btn_shortcuttool;
     private System.Windows.Forms.CheckBox checkBox1;
+<<<<<<< HEAD
         private System.Windows.Forms.CheckBox checkBox2;
     }
+=======
+  }
+>>>>>>> b5350bf52f174a58789cbc8c4a30dfba8948f291
 }
 
