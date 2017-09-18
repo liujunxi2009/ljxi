@@ -106,5 +106,33 @@ namespace JsonProcess
 
       this.richTextBox3.Text = sb.ToString();
     }
+
+    private void btn_count_Click(object sender, EventArgs e)
+    {
+      string left_content = this.richTextBox1.Text.Replace("\r", "");
+      string right_content = this.richTextBox2.Text.Replace("\r", "");
+      string merge_content = this.richTextBox2.Text.Replace("\r", "");
+      string[] left_count = left_content.Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace(" ","").Trim().Split('\n');
+      string[] right_count = right_content.Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace(" ", "").Trim().Split('\n');
+      string[] merge_count = merge_content.Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace(" ", "").Trim().Split('\n');
+      string outstr = "";
+      if (left_count.Length>0)
+      {
+        outstr += "左侧总计行数:"+left_count.Where(x=>!string.IsNullOrEmpty(x)).Count()+"\r\n";
+      }
+      if (right_count.Length > 0)
+      {
+        outstr += "右侧总计行数:" + right_count.Where(x => !string.IsNullOrEmpty(x)).Count() + "\r\n";
+      }
+      if (merge_count.Length > 0)
+      {
+        outstr += "下侧总计行数:" + merge_count.Where(x => !string.IsNullOrEmpty(x)).Count() + "\r\n";
+      }
+      if (string.IsNullOrEmpty(outstr))
+      {
+        outstr = "当前所有行数为0";
+      }
+      MessageBox.Show(outstr);
+    }
   }
 }

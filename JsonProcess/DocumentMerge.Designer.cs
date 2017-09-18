@@ -33,12 +33,13 @@
       this.richTextBox1 = new System.Windows.Forms.RichTextBox();
       this.richTextBox2 = new System.Windows.Forms.RichTextBox();
       this.panel2 = new System.Windows.Forms.Panel();
+      this.button1 = new System.Windows.Forms.Button();
       this.btn_comparison = new System.Windows.Forms.Button();
       this.txt_merge = new System.Windows.Forms.TextBox();
       this.btn_merge = new System.Windows.Forms.Button();
       this.panel3 = new System.Windows.Forms.Panel();
       this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-      this.button1 = new System.Windows.Forms.Button();
+      this.btn_count = new System.Windows.Forms.Button();
       this.panel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
       this.splitContainer1.Panel1.SuspendLayout();
@@ -94,6 +95,7 @@
       // 
       // panel2
       // 
+      this.panel2.Controls.Add(this.btn_count);
       this.panel2.Controls.Add(this.button1);
       this.panel2.Controls.Add(this.btn_comparison);
       this.panel2.Controls.Add(this.txt_merge);
@@ -103,6 +105,16 @@
       this.panel2.Name = "panel2";
       this.panel2.Size = new System.Drawing.Size(1474, 339);
       this.panel2.TabIndex = 1;
+      // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(316, 9);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(75, 23);
+      this.button1.TabIndex = 3;
+      this.button1.Text = "取值合并";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
       // btn_comparison
       // 
@@ -150,15 +162,15 @@
       this.richTextBox3.TabIndex = 1;
       this.richTextBox3.Text = "";
       // 
-      // button1
+      // btn_count
       // 
-      this.button1.Location = new System.Drawing.Point(316, 9);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(75, 23);
-      this.button1.TabIndex = 3;
-      this.button1.Text = "取值合并";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.button1_Click);
+      this.btn_count.Location = new System.Drawing.Point(397, 9);
+      this.btn_count.Name = "btn_count";
+      this.btn_count.Size = new System.Drawing.Size(75, 23);
+      this.btn_count.TabIndex = 4;
+      this.btn_count.Text = "计数";
+      this.btn_count.UseVisualStyleBackColor = true;
+      this.btn_count.Click += new System.EventHandler(this.btn_count_Click);
       // 
       // DocumentMerge
       // 
@@ -195,5 +207,6 @@
     private System.Windows.Forms.RichTextBox richTextBox3;
     private System.Windows.Forms.Button btn_comparison;
     private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button btn_count;
   }
 }

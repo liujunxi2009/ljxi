@@ -29,5 +29,29 @@ namespace JsonProcess
       System.Diagnostics.Process.Start(cmd);
 
     }
+
+    private void button1_Click(object sender, EventArgs e)
+    {
+      string start_elac = @"C:\Windows\system32\mspaint.exe";
+      usedoscmd(start_elac);
+    }
+
+    private void button2_Click(object sender, EventArgs e)
+    {
+      string start_elac = @"C:\Windows\system32\cmd.exe";
+      usedoscmd(start_elac);
+    }
+
+    private void button3_Click(object sender, EventArgs e)
+    {
+      string start_elac = @"C:\Windows\system32\mstsc.exe";
+      usedoscmd(start_elac);
+    }
+
+    private void button4_Click(object sender, EventArgs e)
+    {
+      string start_elac = @"C:\Windows\system32\SnippingTool.exe";
+      usedoscmd(start_elac);
+    }
   }
 }

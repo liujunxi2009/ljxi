@@ -329,6 +329,32 @@ namespace JsonProcess
       ShrotCutWindow scwindow = new ShrotCutWindow();
       scwindow.Show();
     }
+
+    private void button10_Click(object sender, EventArgs e)
+    {
+      string str = this.richTextBox1.Text.Replace(" ","").Replace("\r","");
+      string prefix = this.txt_prefix.Text;
+      string[] strs = str.Split('\n');
+      StringBuilder sbr = new StringBuilder();
+      for (int i = 0; i < strs.Length; i++)
+      {
+        if (strs[i]!=null)
+        {
+          string tempstr = ToGuid(prefix + strs[i]);
+          sbr.Append(tempstr+"\r\n");
+        }
+      }
+      this.richTextBox2.Text = sbr.ToString();
+    }
+
+
+    public  string ToGuid(string pString)
+    {
+      byte[] bString = Encoding.UTF8.GetBytes(pString.ToUpper());
+      byte[] bHash = new System.Security.Cryptography.SHA1CryptoServiceProvider().ComputeHash(bString);
+      Array.Resize(ref bHash, 16);
+      return new Guid(bHash).ToString().ToUpper();
+    }
   }
 
 
