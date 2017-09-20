@@ -124,7 +124,7 @@ namespace JsonProcess
 
 
         var Locationtemp = JsonConvert.SerializeXmlNode(doc1);
-      
+
 
         var tlocations = (JObject)JsonConvert.DeserializeObject(Locationtemp);
 
@@ -147,15 +147,15 @@ namespace JsonProcess
       }
       if (this.textBox1.Text != "")
 
-      if (this.textBox1.Text!="")
+        if (this.textBox1.Text != "")
 
-      {
-        string[] str2 = this.textBox1.Text.Split('|');
-        for (int i = 0; i < str2.Length; i++)
         {
-          str = str.Replace(str2[i], "");
+          string[] str2 = this.textBox1.Text.Split('|');
+          for (int i = 0; i < str2.Length; i++)
+          {
+            str = str.Replace(str2[i], "");
+          }
         }
-      }
       this.richTextBox2.Text = str;
 
     }
@@ -181,12 +181,12 @@ namespace JsonProcess
         for (int i = 0; i < Json["Responses"].Count(); i++)
         {
           string keys = guid + "|" + language + "|" + Json["Responses"][i]["Type"] + "|" + Json["Responses"][i]["Value"];
-          if (Json["Responses"][i]["Type"].ToString()=="8")
+          if (Json["Responses"][i]["Type"].ToString() == "8")
           {
             keys = guid + "|" + language + "|" + Json["Responses"][i]["Type"] + "|" + Json["Responses"][i]["Text"];
           }
           string value = Json["Responses"][i]["Image"].ToString();
-          sb.Append("{\""+keys+"\",\""+value+"\"},\n");
+          sb.Append("{\"" + keys + "\",\"" + value + "\"},\n");
         }
         this.richTextBox2.Text = sb.ToString();
       }
@@ -204,12 +204,12 @@ namespace JsonProcess
       //pattern = @"(?<url>http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?)";
 
       string content = this.richTextBox1.Text;
-      Regex re = new Regex(@""+ pattern + "");
+      Regex re = new Regex(@"" + pattern + "");
       MatchCollection mats = re.Matches(content);
 
       foreach (Match mat in mats)
       {
-        str.Append(mat.Value+"\r\n");
+        str.Append(mat.Value + "\r\n");
       }
       this.richTextBox2.Text = str.ToString();
     }
@@ -218,7 +218,7 @@ namespace JsonProcess
     {
       StringBuilder str = new StringBuilder();
       var pattern = this.rex_text.Text;
- 
+
 
       string content = this.richTextBox1.Text;
       Regex re = new Regex(@"" + pattern + "");
@@ -226,14 +226,14 @@ namespace JsonProcess
 
       foreach (Match mat in mats)
       {
-        str.Append(string.Format(this.txt_format.Text.replacebrackets("|{","}|"), mat.Value) + "\r\n");
+        str.Append(string.Format(this.txt_format.Text.replacebrackets("|{", "}|"), mat.Value) + "\r\n");
       }
-      this.richTextBox2.Text = str.ToString().oppreplacebrackets("{","}");
+      this.richTextBox2.Text = str.ToString().oppreplacebrackets("{", "}");
     }
 
     private void btn_removeexits_Click(object sender, EventArgs e)
     {
-      string str = this.richTextBox2.Text.Replace("\r","");
+      string str = this.richTextBox2.Text.Replace("\r", "");
       string[] list_str = str.Split('\n');
       var removerepeatstr = (from v in list_str.AsEnumerable() select v).Distinct().ToList();
       str = "";
@@ -262,7 +262,7 @@ namespace JsonProcess
       string str = this.richTextBox1.Text.Replace("\r", "");
       string pattern = this.rex_text.Text;
       string newstr = this.txt_format.Text;
-      str = Regex.Replace(str, @""+ pattern + "", newstr);
+      str = Regex.Replace(str, @"" + pattern + "", newstr);
       this.richTextBox2.Text = str;
     }
 
@@ -274,7 +274,7 @@ namespace JsonProcess
       string str2 = "";
       for (int i = 0; i < list_str.Count(); i++)
       {
-        str2 += string.Format(replace, list_str[i]) +"\n";
+        str2 += string.Format(replace, list_str[i]) + "\n";
       }
       this.richTextBox2.Text = str2.oppreplacebrackets("{", "}");
     }
@@ -289,12 +289,12 @@ namespace JsonProcess
     {
       string str = this.richTextBox1.Text.Replace("\r", "");
       string[] list_str = str.Split('\n');
-      var t = from v in list_str group v by v into g select new { k = g.Key, c =g.Count() };
+      var t = from v in list_str group v by v into g select new { k = g.Key, c = g.Count() };
       string str1 = "";
       var t1 = (from v in t.AsEnumerable() where v.c > 1 select v.k).ToList();
       for (int i = 0; i < t1.Count(); i++)
       {
-        str1 += t1[i]+"\n";
+        str1 += t1[i] + "\n";
       }
       this.richTextBox2.Text = str1;
     }
@@ -332,147 +332,154 @@ namespace JsonProcess
 
     private void button10_Click(object sender, EventArgs e)
     {
-      string str = this.richTextBox1.Text.Replace(" ","").Replace("\r","");
+      string str = this.richTextBox1.Text.Replace(" ", "").Replace("\r", "");
       string prefix = this.txt_prefix.Text;
       string[] strs = str.Split('\n');
       StringBuilder sbr = new StringBuilder();
       for (int i = 0; i < strs.Length; i++)
       {
-        if (strs[i]!=null)
+        if (strs[i] != null)
         {
           string tempstr = ToGuid(prefix + strs[i]);
-          sbr.Append(tempstr+"\r\n");
+          sbr.Append(tempstr + "\r\n");
         }
       }
       this.richTextBox2.Text = sbr.ToString();
     }
 
 
-    public  string ToGuid(string pString)
+    public string ToGuid(string pString)
     {
       byte[] bString = Encoding.UTF8.GetBytes(pString.ToUpper());
       byte[] bHash = new System.Security.Cryptography.SHA1CryptoServiceProvider().ComputeHash(bString);
       Array.Resize(ref bHash, 16);
       return new Guid(bHash).ToString().ToUpper();
     }
+
+    private void button10_Click_1(object sender, EventArgs e)
+    {
+      publish pub = new publish();
+      pub.Show();
+      this.Hide();
+    }
   }
 
 
 
   public class OperatingHoursItem
-{
-  public string day { get; set; }
-  public string startTime { get; set; }
-  public string endTime { get; set; }
-}
-
-public class OperatingHours
-{
-  public List<OperatingHoursItem> _OperatingHours { get; set; }
-}
-
-public class Services
-{
-  public string _string { get; set; }
-}
-
-public class LocationItem
-{
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Id { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Name { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Address1 { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Address2 { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Address3 { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Address4 { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string City { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string State { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string ZipCode { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Country { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Phone { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Distance { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Latitude { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public string Longitude { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public OperatingHours OperatingHours { get; set; }
-  /// <summary>
-  /// 
-  /// </summary>
-  public Services Services { get; set; }
-}
-
-
-
-
-
-
-
-
-public static class DocumentExtensions
-{
-  public static XmlDocument ToXmlDocument(this XDocument xDocument)
   {
-    var xmlDocument = new XmlDocument();
-    using (var xmlReader = xDocument.CreateReader())
-    {
-      xmlDocument.Load(xmlReader);
-    }
-    return xmlDocument;
+    public string day { get; set; }
+    public string startTime { get; set; }
+    public string endTime { get; set; }
   }
 
-  public static XDocument ToXDocument(this XmlDocument xmlDocument)
+  public class OperatingHours
   {
-    using (var nodeReader = new XmlNodeReader(xmlDocument))
-    {
-      nodeReader.MoveToContent();
-      return XDocument.Load(nodeReader);
-    }
+    public List<OperatingHoursItem> _OperatingHours { get; set; }
   }
 
-}
+  public class Services
+  {
+    public string _string { get; set; }
+  }
+
+  public class LocationItem
+  {
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Id { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Name { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Address1 { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Address2 { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Address3 { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Address4 { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string City { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string State { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string ZipCode { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Country { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Phone { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Distance { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Latitude { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public string Longitude { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public OperatingHours OperatingHours { get; set; }
+    /// <summary>
+    /// 
+    /// </summary>
+    public Services Services { get; set; }
+  }
+
+
+
+
+
+
+
+
+  public static class DocumentExtensions
+  {
+    public static XmlDocument ToXmlDocument(this XDocument xDocument)
+    {
+      var xmlDocument = new XmlDocument();
+      using (var xmlReader = xDocument.CreateReader())
+      {
+        xmlDocument.Load(xmlReader);
+      }
+      return xmlDocument;
+    }
+
+    public static XDocument ToXDocument(this XmlDocument xmlDocument)
+    {
+      using (var nodeReader = new XmlNodeReader(xmlDocument))
+      {
+        nodeReader.MoveToContent();
+        return XDocument.Load(nodeReader);
+      }
+    }
+
+  }
 
 
 
