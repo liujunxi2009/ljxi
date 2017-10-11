@@ -15,15 +15,25 @@ namespace JsonProcess
     {
         public publish()
         {
+            Control.CheckForIllegalCrossThreadCalls = false;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Task tk = new Task(()=> {
+                syncupdatedata();
+            });
+            tk.Start();
+        }
+
+        private void syncupdatedata()
+        {
+            this.richTextBox1.Text = "处理中...";
             string path = this.txt_datapath.Text;
-            string letterofdisk = path.Split(':')[0]+":";
+            string letterofdisk = path.Split(':')[0] + ":";
             string programname = path.Split('\\').LastOrDefault();
-            string programpath = path.Replace(programname,"").TrimEnd('\\');
+            string programpath = path.Replace(programname, "").TrimEnd('\\');
             Process p = new Process();  // 初始化新的进程
             p.StartInfo.FileName = "CMD.EXE"; //创建CMD.EXE 进程
             p.StartInfo.RedirectStandardInput = true; //重定向输入
@@ -36,24 +46,33 @@ namespace JsonProcess
             sb.AppendLine("echo.");
             sb.AppendLine("echo 开始执行(start exec)！");
             sb.AppendLine(letterofdisk);
-            sb.AppendLine(@"cd "+ programpath);
-            sb.AppendLine("call "+ programname+" "+this.txt_param.Text);
+            sb.AppendLine(@"cd " + programpath);
+            sb.AppendLine("call " + programname + " " + this.txt_param.Text);
             sb.AppendLine("echo.");
             sb.AppendLine("echo MOTO文档修复完毕(document updated sucessful)！");
             sb.AppendLine("echo.");
             sb.AppendLine("echo 程序运行完毕(exec finish)！");
-            sb.AppendLine("echo 结束时间(endtime)：% date:~0,10 % % time:~0,8 %");
-            sb.AppendLine("pause");
-                      
+
             p.StandardInput.WriteLine(sb.ToString()); // Cmd 命令
             p.StandardInput.WriteLine("exit"); // 退出
             string s = p.StandardOutput.ReadToEnd(); //将输出赋值给 S
             this.richTextBox1.Text = s;
             p.WaitForExit();  // 等待退出
+            this.richTextBox1.Text = s + "\r\n 处理完成 时间:" + DateTime.Now.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Task tk = new Task(() => {
+                PublisCssAndJs();
+            });
+            tk.Start();
+           
+        }
+
+        private void PublisCssAndJs()
+        {
+            this.richTextBox1.Text = "处理中...";
             Process p = new Process();  // 初始化新的进程
             p.StartInfo.FileName = "CMD.EXE"; //创建CMD.EXE 进程
             p.StartInfo.RedirectStandardInput = true; //重定向输入
@@ -63,20 +82,28 @@ namespace JsonProcess
             p.StartInfo.CreateNoWindow = true; //不创建窗口
             p.Start(); // 启动进程
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine(@"xcopy "+this.txt_jspath.Text+" "+ this.txt_pubpath.Text + "  /s /e /y");
-
+            sb.AppendLine(@"xcopy " + this.txt_jspath.Text + " " + this.txt_pubpath.Text + "  /s /e /y");
             sb.AppendLine("echo 程序发布完毕！");
-            sb.AppendLine("echo 结束时间：% date:~0,10 % % time:~0,8 %");
-
             p.StandardInput.WriteLine(sb.ToString()); // Cmd 命令
             p.StandardInput.WriteLine("exit"); // 退出
             string s = p.StandardOutput.ReadToEnd(); //将输出赋值给 S
             this.richTextBox1.Text = s;
             p.WaitForExit();  // 等待退出
+            this.richTextBox1.Text = s + "\r\n 处理完成 时间:" + DateTime.Now.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
+            
+            Task tk = new Task(() => {
+                PublisDll();
+            });
+            tk.Start();
+        }
+
+        private void PublisDll()
+        {
+            this.richTextBox1.Text = "处理中...";
             Process p = new Process();  // 初始化新的进程
             p.StartInfo.FileName = "CMD.EXE"; //创建CMD.EXE 进程
             p.StartInfo.RedirectStandardInput = true; //重定向输入
@@ -89,13 +116,13 @@ namespace JsonProcess
             sb.AppendLine(@"xcopy " + this.txt_dllpath.Text + " " + this.txt_dllpubpath.Text + " /s /e /y");
 
             sb.AppendLine("echo 程序发布完毕！");
-            sb.AppendLine("echo 结束时间：% date:~0,10 % % time:~0,8 %");
 
             p.StandardInput.WriteLine(sb.ToString()); // Cmd 命令
             p.StandardInput.WriteLine("exit"); // 退出
             string s = p.StandardOutput.ReadToEnd(); //将输出赋值给 S
             this.richTextBox1.Text = s;
             p.WaitForExit();  // 等待退出
+            this.richTextBox1.Text = s + "\r\n 处理完成 时间:" + DateTime.Now.ToString();
         }
 
         private void button4_Click(object sender, EventArgs e)
