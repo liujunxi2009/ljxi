@@ -360,7 +360,6 @@ namespace JsonProcess
     {
       publish pub = new publish();
       pub.Show();
-      this.Hide();
     }
 
     private void Form1_Load(object sender, EventArgs e)
