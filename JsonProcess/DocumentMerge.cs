@@ -111,7 +111,7 @@ namespace JsonProcess
     {
       string left_content = this.richTextBox1.Text.Replace("\r", "");
       string right_content = this.richTextBox2.Text.Replace("\r", "");
-      string merge_content = this.richTextBox2.Text.Replace("\r", "");
+      string merge_content = this.richTextBox3.Text.Replace("\r", "");
       string[] left_count = left_content.Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace(" ","").Trim().Split('\n');
       string[] right_count = right_content.Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace(" ", "").Trim().Split('\n');
       string[] merge_count = merge_content.Replace("\t", "").Replace("\v", "").Replace("\f", "").Replace(" ", "").Trim().Split('\n');

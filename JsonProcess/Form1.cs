@@ -11,6 +11,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -30,6 +31,41 @@ namespace JsonProcess
 
     private void button1_Click(object sender, EventArgs e)
     {
+      String path = @"E:\productinfotest";
+
+
+      var files = Directory.GetFiles(path, "*.txt");
+
+
+      string sbr = "";
+      Task[] tasks = new Task[14];
+      int i = 0;
+      foreach (var file in files)
+      {
+        Console.WriteLine(file);
+        //Read(file);
+
+        tasks[i] = Task.Factory.StartNew(() => Read1(file));
+        i++;
+      }
+
+      Task.Factory.StartNew(x =>
+      {
+        Task.WaitAll(tasks.ToArray());
+        //for (int j = 0; j < strtest.Count(); j++)
+        //{
+        //  sbr +=strtest[j];
+        //}
+        //string pathout = "E:\\AllCVS4.txt";
+        //StreamWriter sw = new StreamWriter(pathout, true);
+        //sw.WriteLine(sbr);
+        //sw.Close();
+        //sw.Dispose();
+
+        MessageBox.Show("所有写入完成");
+
+      }, null);
+
       string str11 = "https://download.lenovo.com/motorola/content/images/online_support.png.png,https://mobilesupport.lenovo.com/uk/ek/chat";
       string str22 = "https://download.lenovo.com/motorola/content/images/online_support.png.png";
       int len11 = str11.Split(',').Length;
@@ -362,11 +398,87 @@ namespace JsonProcess
       pub.Show();
     }
 
+    public List<string> strtest = new List<string>();
     private void Form1_Load(object sender, EventArgs e)
     {
-
+      
     }
+    public void Read(string path)
+    {
+      //Thread.Sleep(2000);
+      string newpath = path.Replace("Zout", "Zoutcsv").Replace(".txt", ".csv");
+      string[] newpaths = newpath.Split('\\');
+      newpaths[2] = newpaths[2].Substring(22);
+      newpath = newpaths[0] + "\\" + newpaths[1]+"\\"+newpaths[2];
+      DataTable dt = new DataTable();
+      dt.Columns.Add("ID",Type.GetType("System.String"));
+      dt.Columns.Add("DES", Type.GetType("System.String"));
+      StreamReader sr = new StreamReader(path, Encoding.Default);
+      String line;
+      while ((line = sr.ReadLine()) != null)
+      {
+        string current_str = line.ToString();
+        DataRow dr = dt.NewRow();
+        string[] cur_sts = current_str.Replace("||", "♂").Split('♂');
+        if (cur_sts.Length==3)
+        {
+          dr["ID"] = cur_sts[0];
+          if (cur_sts[1] == "")
+          {
+            dr["DES"] = cur_sts[2];
+          }
+          else
+          {
+            dr["DES"] = cur_sts[1];
+          }
+          dt.Rows.Add(dr);
+        }
+      }
+
+     
+      CSVFileHelper.SaveCSV(dt, newpath);
+    }
+
+    public void Read1(string path)
+    {
+      Thread.Sleep(1000);
+      string newpath = path.Replace("productinfotest", "productinfoone");
+      string[] newpaths = newpath.Split('\\');
+      newpaths[2] = newpaths[2].Substring(22);
+      newpath = newpaths[0] + "\\" + newpaths[1] + "\\" + newpaths[2];
+
+      string cur_str = ReaderFile(path);
+      strtest.Add(cur_str.Replace("||","♂"));
+
+      StreamWriter sw = new StreamWriter(newpath, true);
+      sw.WriteLine(cur_str.ToString());
+      sw.Close();
+      sw.Dispose();
+
+      Console.WriteLine(path + "对应线程完成!\r\n");
+    }
+
+    public static string ReaderFile(string path)
+    {
+      string fileData = string.Empty;
+      try
+      {   ///读取文件的内容    
+        StreamReader reader = new StreamReader(path, Encoding.UTF8);
+        fileData = reader.ReadToEnd();
+        reader.Close();
+      }
+      catch (Exception ex)
+      {
+        // throw new Exception(ex.Message,ex);  
+      }  ///抛出异常    
+      return fileData;
+    }
+
+
+
   }
+
+
 
 
 

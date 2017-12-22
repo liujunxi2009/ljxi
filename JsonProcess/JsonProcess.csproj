@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSVFileHelper.cs" />
     <Compile Include="DocumentMerge.cs">
       <SubType>Form</SubType>
     </Compile>
