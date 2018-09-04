@@ -125,11 +125,36 @@ namespace JsonProcess
             this.richTextBox1.Text = s + "\r\n 处理完成 时间:" + DateTime.Now.ToString();
         }
 
+        private void debugNodejs()
+        {
+            Process p = new Process();  // 初始化新的进程
+            p.StartInfo.FileName = "CMD.EXE"; //创建CMD.EXE 进程
+            p.StartInfo.RedirectStandardInput = true; //重定向输入
+            p.StartInfo.RedirectStandardOutput = true;//重定向输出
+            p.StartInfo.UseShellExecute = false; // 不调用系统的Shell
+            p.StartInfo.RedirectStandardError = true; // 重定向Error
+            p.StartInfo.CreateNoWindow = false; //不创建窗口
+            p.Start(); // 启动进程
+            string str = text_path.Text;
+            string str_cmd = text_cmd.Text;
+            string tempstr = "cmd /k \"cd / d "+ str + " && "+ str_cmd + "\"";
+            p.StandardInput.WriteLine(tempstr); // Cmd 命令
+
+            p.StandardInput.WriteLine("编译完成!");
+
+
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
             Form1 frm = new Form1();
             frm.Show();
             this.Hide();
+        }
+
+        private void btn_publish_Click(object sender, EventArgs e)
+        {
+            debugNodejs();
         }
     }
 }

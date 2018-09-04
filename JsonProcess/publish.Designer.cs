@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btn_publish = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.text_path = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.text_cmd = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -60,6 +65,11 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btn_publish);
+            this.splitContainer1.Panel1.Controls.Add(this.label7);
+            this.splitContainer1.Panel1.Controls.Add(this.text_path);
+            this.splitContainer1.Panel1.Controls.Add(this.label8);
+            this.splitContainer1.Panel1.Controls.Add(this.text_cmd);
             this.splitContainer1.Panel1.Controls.Add(this.button4);
             this.splitContainer1.Panel1.Controls.Add(this.button1);
             this.splitContainer1.Panel1.Controls.Add(this.button3);
@@ -83,6 +93,50 @@
             this.splitContainer1.Size = new System.Drawing.Size(1373, 649);
             this.splitContainer1.SplitterDistance = 517;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btn_publish
+            // 
+            this.btn_publish.Location = new System.Drawing.Point(105, 468);
+            this.btn_publish.Name = "btn_publish";
+            this.btn_publish.Size = new System.Drawing.Size(75, 23);
+            this.btn_publish.TabIndex = 22;
+            this.btn_publish.Text = "编译脚本";
+            this.btn_publish.UseVisualStyleBackColor = true;
+            this.btn_publish.Click += new System.EventHandler(this.btn_publish_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 437);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(29, 12);
+            this.label7.TabIndex = 21;
+            this.label7.Text = "路径";
+            // 
+            // text_path
+            // 
+            this.text_path.Location = new System.Drawing.Point(40, 432);
+            this.text_path.Name = "text_path";
+            this.text_path.Size = new System.Drawing.Size(463, 21);
+            this.text_path.TabIndex = 20;
+            this.text_path.Text = "E:\\mse-git\\mse-web\\src\\Lenovo.eService.Website";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(7, 391);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "参数";
+            // 
+            // text_cmd
+            // 
+            this.text_cmd.Location = new System.Drawing.Point(40, 388);
+            this.text_cmd.Name = "text_cmd";
+            this.text_cmd.Size = new System.Drawing.Size(463, 21);
+            this.text_cmd.TabIndex = 18;
+            this.text_cmd.Text = "npm run build";
             // 
             // button4
             // 
@@ -138,7 +192,7 @@
             this.txt_datapath.Name = "txt_datapath";
             this.txt_datapath.Size = new System.Drawing.Size(463, 21);
             this.txt_datapath.TabIndex = 2;
-            this.txt_datapath.Text = "G:\\mse-git\\mse-web\\src\\Framework\\Publisher\\bin\\eSupport.Publisher.exe";
+            this.txt_datapath.Text = "E:\\mse-git\\mse-web\\src\\Framework\\Publisher\\bin\\eSupport.Publisher.exe";
             // 
             // txt_dllpubpath
             // 
@@ -146,7 +200,7 @@
             this.txt_dllpubpath.Name = "txt_dllpubpath";
             this.txt_dllpubpath.Size = new System.Drawing.Size(430, 21);
             this.txt_dllpubpath.TabIndex = 14;
-            this.txt_dllpubpath.Text = "F:\\Pub_Mse2.4\\bin";
+            this.txt_dllpubpath.Text = "E:\\Pub_Mse2.4\\bin";
             // 
             // label1
             // 
@@ -180,7 +234,7 @@
             this.txt_dllpath.Name = "txt_dllpath";
             this.txt_dllpath.Size = new System.Drawing.Size(430, 21);
             this.txt_dllpath.TabIndex = 12;
-            this.txt_dllpath.Text = "G:\\mse-git\\mse-web\\src\\Lenovo.eService.Website\\bin\\*.dll";
+            this.txt_dllpath.Text = "E:\\mse-git\\mse-web\\src\\Lenovo.eService.Website\\bin\\*.dll";
             // 
             // txt_jspath
             // 
@@ -188,7 +242,7 @@
             this.txt_jspath.Name = "txt_jspath";
             this.txt_jspath.Size = new System.Drawing.Size(430, 21);
             this.txt_jspath.TabIndex = 6;
-            this.txt_jspath.Text = "G:\\mse-git\\mse-web\\src\\Lenovo.eService.Website\\dist\\*.*";
+            this.txt_jspath.Text = "E:\\mse-git\\mse-web\\src\\Lenovo.eService.Website\\dist\\*.*";
             // 
             // button2
             // 
@@ -224,7 +278,7 @@
             this.txt_pubpath.Name = "txt_pubpath";
             this.txt_pubpath.Size = new System.Drawing.Size(430, 21);
             this.txt_pubpath.TabIndex = 8;
-            this.txt_pubpath.Text = "F:\\Pub_Mse2.4\\dist";
+            this.txt_pubpath.Text = "E:\\Pub_Mse2.4\\dist";
             // 
             // richTextBox1
             // 
@@ -272,5 +326,10 @@
         private System.Windows.Forms.TextBox txt_jspath;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btn_publish;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox text_path;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox text_cmd;
     }
 }

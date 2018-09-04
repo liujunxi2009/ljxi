@@ -238,9 +238,10 @@ namespace JsonProcess
       StringBuilder str = new StringBuilder();
       var pattern = this.rex_text.Text;
       //pattern = @"(?<url>http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&=]*)?)";
+      //string strtt = Regex.Replace("<scRIpt> dfsdsf</Script>dsfdsfds", "script", "|spt|", RegexOptions.IgnoreCase);
 
       string content = this.richTextBox1.Text;
-      Regex re = new Regex(@"" + pattern + "");
+      Regex re = new Regex(@"" + pattern + "", RegexOptions.IgnorePatternWhitespace);
       MatchCollection mats = re.Matches(content);
 
       foreach (Match mat in mats)
