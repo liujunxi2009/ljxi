@@ -70,5 +70,11 @@ namespace JsonProcess
       //string start_elac = @"C:\Windows\system32\SnippingTool.exe";
       //usedoscmd(start_elac);
     }
-  }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            TransFrom tForm = new TransFrom();
+            tForm.Show();
+        }
+    }
 }
